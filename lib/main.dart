@@ -11,18 +11,49 @@ class ExpensesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = ThemeData();
-
     return MaterialApp(
-      title: 'Expenses',
-      home: const MyHomePage(),
-      theme: theme.copyWith(
-        colorScheme: theme.colorScheme.copyWith(
-          primary: Colors.blue[700],
-          secondary: Colors.cyan[300],
-        )
-      )
-    );
+        title: 'Expenses',
+        home: const MyHomePage(),
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSwatch().copyWith(
+            primary: Colors.blue[700],
+            secondary: Colors.cyan[300],
+          ),
+          appBarTheme: AppBarTheme(
+              toolbarTextStyle: ThemeData.light()
+                  .textTheme
+                  .copyWith(
+                    titleLarge: const TextStyle(
+                      fontFamily: 'OpenSans',
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  )
+                  .bodyMedium,
+              titleTextStyle: ThemeData.light()
+                  .textTheme
+                  .copyWith(
+                    titleLarge: const TextStyle(
+                      fontFamily: 'OpenSans',
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  )
+                  .titleLarge),
+          textTheme: ThemeData.light().textTheme.copyWith(
+                titleMedium: const TextStyle(
+                  fontFamily: 'OpenSans',
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+                titleLarge: TextStyle(
+                  fontFamily: 'QuickSand',
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: ThemeData.light().colorScheme.primary,
+                ),
+              ),
+        ));
   }
 }
 
